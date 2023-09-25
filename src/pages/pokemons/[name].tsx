@@ -13,6 +13,8 @@ export default function Pokemon() {
   const result = useGetPokemonByNameQuery(name || skipToken, {skip: !name});
   const { isLoading, error, data } = result;
 
+    console.log('COMPONENT LOG', result?.data?.species.name)
+
   return (
       <>
       <Head>
@@ -37,6 +39,8 @@ export default function Pokemon() {
 
 export const getServerSideProps = wrapper.getServerSideProps(
     (store) => async (context) => {
+        console.log("GSSP CALL!!!")
+        console.log("STORE", store.getState())
         const name = context.params?.name;
         if (typeof name === "string") {
             store.dispatch(getPokemonByName.initiate(name));
