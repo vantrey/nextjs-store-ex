@@ -8,7 +8,7 @@ export default function App({ Component, ...rest }: AppProps) {
   const {store, props} = wrapper.useWrappedStore(rest);
 
     useEffect(() => {
-        if("serviceWorker" in navigator) {
+ /*       if("serviceWorker" in navigator) {
                 navigator.serviceWorker.register("/sw.js").then(
                     function (registration) {
                         console.log("Service Worker registration successful with scope: ", registration.scope);
@@ -18,7 +18,7 @@ export default function App({ Component, ...rest }: AppProps) {
                     }
                 );
 
-        }
+        }*/
     }, [])
 
   return (

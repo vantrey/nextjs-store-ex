@@ -7,19 +7,15 @@ const WithoutRedux: NextPage<InferGetServerSidePropsType<typeof getServerSidePro
     const result = useGetPokemonListQuery();
     const { isLoading, error, data } = result;
 
-    if (isLoading) {
-        return  <>IS LOADING......</>
-    }
-
   return (
     <>
         <data>
         <div>{repo.name}{' '}</div>
     </data>
-        <data>
+        {!isLoading && <data>
             {data?.results.map(result =>
                 <Link href={`/pokemons/${result.name}`} key={result.name}>{result.name}{' '}</Link>)}
-        </data>
+        </data> || <>IS LOADING......</>}
     </>
   );
 };
