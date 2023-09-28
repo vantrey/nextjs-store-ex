@@ -8,7 +8,10 @@ export const makeStore = () => {
    return  configureStore({
         reducer: {
             [pokemonApi.reducerPath]: pokemonApi.reducer,
-            anyReducer: () => {return {a: '123'}}
+            anyReducer: () => {
+                console.log('REDUCES')
+                return {a: '123'}
+            }
         },
         middleware: (gDM) => gDM().concat(pokemonApi.middleware),
     });

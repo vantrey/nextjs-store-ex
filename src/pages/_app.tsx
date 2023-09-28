@@ -6,7 +6,7 @@ import {useEffect} from 'react';
 
 export default function App({ Component, ...rest }: AppProps) {
   const {store, props} = wrapper.useWrappedStore(rest);
-
+    console.log('APP')
     useEffect(() => {
  /*       if("serviceWorker" in navigator) {
                 navigator.serviceWorker.register("/sw.js").then(

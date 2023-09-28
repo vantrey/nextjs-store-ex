@@ -31,8 +31,9 @@ const Pokemons: NextPage<IPokemonsProps> = ({}) => {
 
 export default Pokemons;
 
+//срабатывает 1 раз на сервере а потом на клиенте при роутинге
 Pokemons.getInitialProps = wrapper.getInitialPageProps(store => async ({pathname, req, res}) => {
-    console.log('req', req)
+    console.log('req', req) // на клиенте undefined
     console.log('pathname', pathname)
     console.log('2. Page.getInitialProps uses the store to dispatch things');
     const name = 'bulbasaur';
